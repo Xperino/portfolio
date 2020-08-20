@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,700,700i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/ski_resorts_style.css">
+    <title>Book your equipment</title>
+</head>
+
+<body>
+    <header>
+        <div class="resort__header">
+            <ul id="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Restaurants</a></li>
+                <li><a href="#">Educational Institutes</a></li>
+                <li><a href="#">Tourist Places</a></li>
+                <li><a href="Project_Vlad_ski_resorts.html">Back to Ski Resorts</a></li>
+            </ul>
+        </div>
+        <h3 class="resort__title">Please fill in the form and click submit to get book equipment</h3>
+    </header>
+    <div>
+        <form id="rental_form" method="GET" action="" onsubmit="return validateForm()">
+            <fieldset>
+                <legend>Booking form</legend>
+                <table>
+                    <tr>
+                        <td>Your name:</td>
+                        <td><input type="text" id="name"></td>
+                    </tr>
+                    <tr>
+                        <td>Your email:</td>
+                        <td><input type="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td>Select resort:</td>
+                        <td>
+                            <select>
+                                <option>Blue Mountain Res</option>
+                                <option>Moonstone</option>
+                                <option>Horseshoe Res</option>
+                                <option>Searchmont Res</option>
+                                <option>Osler Bluff Ski Club</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Select ski brand:</td>
+                        <td>
+                            <input type="radio" name="ski-brand" id="ski-brand-blizzard">
+                            <label for="ski-brand-blizzard">Blizzard</label>
+                            <input type="radio" name="ski-brand" id="ski-brand-nordica">
+                            <label for="ski-brand-nordica">Nordica</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Select your level:</td>
+                        <td>
+                            <select>
+                                <option>Beginner</option>
+                                <option>Intermediate</option>
+                                <option>Expert</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Select ski length:</td>
+                        <td>
+                            <select>
+                                <optgroup label="Kids">
+                                    <option>125</option>
+                                    <option>135</option>
+                                </optgroup>
+                                <optgroup label="Women">
+                                    <option>145</option>
+                                    <option>155</option>
+                                    <option>165</option>
+                                    <option>175</option>
+                                </optgroup>
+                                <optgroup label="Men">
+                                    <option>155</option>
+                                    <option>165</option>
+                                    <option>175</option>
+                                    <option>185</option>
+                                </optgroup>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Select your package:</td>
+                        <td>
+                            <input type="radio" name="package" id="full-pckg"><label for="full-pckg">
+                                Full package - skis, poles, boots, helmet, goggles, gloves </label><br>
+                            <input type="radio" name="package" id="basic-pckg"><label for="basic-pckg">
+                                Basic package - skis, boots, helmet </label>
+                        </td>
+                    </tr>
+                </table>
+                <button class="rent__btn" type="submit">Submit</button>
+                <button class="rent__btn" type="reset">Reset</button>
+            </fieldset>
+            <script>
+                function validateForm() {
+                    let optionBrand = document.getElementsByName("ski-brand");
+                    let optionPackage = document.getElementsByName("package");
+                    if (document.getElementById("name").value == "") {
+                        alert("You must provide your name.");
+                        return false;
+                    }
+                    else if (document.getElementById("email").value == "") {
+                        alert("You must provide an email address.");
+                        return false;
+                    }
+                    else if (!(optionBrand[0].checked || optionBrand[1].checked)) {
+                        alert("Please select ski brand.");
+                        return false;
+                    }
+                    else if (!(optionPackage[0].checked || optionPackage[1].checked)) {
+                        alert("Please select package.");
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+        </form>
+    </div>
+
+</body>
+
+</html>

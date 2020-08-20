@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <!-- INTRO HEADER-->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="user">
+                    <div class="user__avatar">
+                        <img src="images/avatar.jpg" width="57" alt="my avatar">
+                    </div>
+                    <div class="user__content">
+                        <div class="user__name">
+                            Vlad<br>Kostur
+                        </div>
+                        <div class="user__prof">
+                            Web Dev
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="nav" id="nav">
+                    <a class="nav__link" href="#works">work</a>
+                    <a class="nav__link" href="#about">about me</a>
+                    <a class="nav__link  nav__link--btn" href="#" data-modal="#modal-hire-me">hire me</a>
+                </nav>
+
+                <button class="burger" type="button" id="navToggle">
+                    <img src="images/burger.svg" class="burger__icon" alt="burger menu">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <div class="intro__inner">
+                <div class="intro__content">
+                    <h2 class="intro__subtitle">Hello I'm</h2>
+                    <h1 class="intro__title">Vladyslav Kostur</h1>
+                    <div class="intro__text">Web Developer</div>
+
+                    <div class="social">
+                        <a class="social__link" href="https://www.linkedin.com/in/vladyslav-kostur-b37a31188/"
+                            target="_blank"><img src="images/linkedin.svg">
+                        </a>
+                    </div>
+
+                    <button class="btn" type="button" href="" data-modal="#modal-hire-me">HIRE ME</button>
+                    <a class="btn"
+                        href="http://ec2-15-222-242-186.ca-central-1.compute.amazonaws.com/vlad_kostur/html_resume/">SEE
+                        MY RESUME</a>
+                </div>
+                <img class="intro__photo" src="images/photo.png">
+            </div> <!-- /intro__inner -->
+        </div> <!-- /container -->
+    </section>
+
+    <!-- WORKS -->
+    <div class="works" id="works">
+        <div class="container">
+            <div class="works__nav">
+                <a class="works__nav-link" href="#" data-filter="all">ALL</a>
+                <a class="works__nav-link" href="#" data-filter="website">WEBSITES</a>
+                <a class="works__nav-link" href="#" data-filter="interaction">INTERACTIONS</a>
+                <a class="works__nav-link" href="#" data-filter="app">APPS</a>
+            </div>
+
+            <div class="portfolio">
+
+                <div class="portfolio__col" data-cat="website">
+                    <div class="work">
+                        <a href="pages/ski-resorts/Project_Vlad_ski_resorts.html" target="_blank">
+                            <img class="work__img" src="images/ski-resorts.jpg" alt="preview of ski resorts page">
+                        </a>
+                        <div class="work__content">
+                            <div class="work__cat">Vacation</div>
+                            <div class="work__title">
+                                Ontario Ski Resorts
+                                <div class="work__date">2020</div>
+                            </div>
+                            <div class="work__desc">
+                                Descriptive website where you can find info about ski resorts in Ontario.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio__col" data-cat="interaction">
+                    <div class="work">
+                        <a href="https://codepen.io/Xperino/full/PoPLZLZ" target="_blank">
+                            <img class="work__img" src="images/preview-survey-form.webp" alt="preview of survey form">
+                        </a>
+                        <div class="work__content">
+                            <div class="work__cat">Forms</div>
+                            <div class="work__title">
+                                Hairdresser's Survey Form
+                                <div class="work__date">2020</div>
+                            </div>
+                            <div class="work__desc">
+                                Survey Form for the Hairdesser's to get feedback from the clients.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio__col" data-cat="website">
+                    <div class="work">
+                        <a href="https://codepen.io/Xperino/full/vYNqewB" target="_blank">
+                            <img class="work__img" src="images/preview-landing-page.webp"
+                                alt="preview of product landing page">
+                        </a>
+                        <div class="work__content">
+                            <div class="work__cat">Training</div>
+                            <div class="work__title">
+                                Product Landing Page
+                                <div class="work__date">2020</div>
+                            </div>
+                            <div class="work__desc">
+                                Product landing responsive web page, built using pure HTML and CSS.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio__col" data-cat="interaction">
+                    <div class="work">
+                        <a href="pages/tables/countries-table.html" target="_blank">
+                            <img class="work__img" src="images/preview-table-xml.jpg" alt="table preview">
+                        </a>
+                        <div class="work__content">
+                            <div class="work__cat">XML Processing</div>
+                            <div class="work__title">
+                                Table with AJAX
+                                <div class="work__date">2020</div>
+                            </div>
+                            <div class="work__desc">
+                                User can search for countries in the given complicated XML file.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio__col" data-cat="website">
+                    <div class="work">
+                        <a href="https://codepen.io/Xperino/full/dyYroap" target="_blank">
+                            <img class="work__img" src="images/preview-tribute-page.webp"
+                                alt="preview of Ivan Franko Tribute Page">
+                        </a>
+                        <div class="work__content">
+                            <div class="work__cat">History</div>
+                            <div class="work__title">
+                                Ivan Franko - Tribute Page
+                                <div class="work__date">2020</div>
+                            </div>
+                            <div class="work__desc">
+                                Simple responsive web page which is written using pure HTML and CSS.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio__col" data-cat="interaction">
+                    <div class="work">
+                        <a href="pages/tables/countries-detailed-table.html" target="_blank">
+                            <img class="work__img" src="images/preview-table-json.jpg" alt="table preview">
+                        </a>
+                        <div class="work__content">
+                            <div class="work__cat">JSON Processing</div>
+                            <div class="work__title">
+                                Countries information
+                                <div class="work__date">2020</div>
+                            </div>
+                            <div class="work__desc">
+                                User can search for some information in the given JSON file.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div> <!-- /.portfolio -->
+
+            <div class="text-center">
+                <a class="btn  btn--sm" href="#">load more work</a>
+            </div>
+        </div> <!-- /container -->
+    </div> <!-- /works -->
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about__inner">
+                <div class="about__photo">
+                    <img class="img" src="images/designer_photo.png" alt="">
+                </div>
+                <div class="about__content">
+                    <h3 class="about__title">about me</h3>
+                    <h2 class="about__bigtitle">who am i</h2>
+                    <div class="about__text">
+                        <p> Young and passionate developer enrolled into Post Graduate IT Solutions Program at
+                            Humber college, Toronto.
+                            I have already finished my first academic year and currently on the official break until
+                            January 2021.
+                            Enthusiastic, highly-motivated and self-disciplined person with proven economic and
+                            leadership capabilities, who likes to take initiative and seek out new challenges.
+                            My previous work experience related to economics, production planning and logistics.
+                            Capable of working in a fast paced environment and under pressure.
+                            Team Player. Good at any computer related tasks, learn things
+                            very fast and attentive to details. Good time management skills. </p>
+                        <p> I can write any type of website for you or your business.
+                            Will increase your number of customers and make sure that your brand will become
+                            recognizable.
+                        </p>
+                    </div>
+                    <button class="btn" type="button" href="" data-modal="#modal-hire-me">HIRE ME</button>
+                    <a class="btn"
+                        href="http://ec2-15-222-242-186.ca-central-1.compute.amazonaws.com/vlad_kostur/html_resume/">SEE
+                        MY RESUME</a>
+                </div>
+
+            </div> <!-- /.about__inner -->
+        </div> <!-- /.container -->
+    </section> <!-- /.about -->
+
+    <!-- REVIEWS -->
+    <div class="reviews">
+        <div class="container">
+
+            <div class="reviews__item">
+                <div class="reviews__text">
+                    <p> I had nice experience working with Vlad. He did really good job improving my web marketplace.
+                    </p>
+                    <p> Also he provided me with all the needed instructions to further maintain my website.
+                        He filled everything with quality content and meet the deadlines. I would recommend him if you
+                        want quality work to be done for reasonable amount of money.
+                    </p>
+                </div>
+
+                <div class="reviews__author">
+                    <img class="reviews__photo" src="https://placekitten.com/103/103" alt="">
+
+                    <div class="reviews__name">Viktor Ostapenko</div>
+                    <div class="reviews__company">Marketing House</div>
+                    <div class="reviews__rating">
+                        <img class="reviews__star" src="images/star.svg" alt="">
+                        <img class="reviews__star" src="images/star.svg" alt="">
+                        <img class="reviews__star" src="images/star.svg" alt="">
+                        <img class="reviews__star" src="images/star.svg" alt="">
+                        <img class="reviews__star reviews__star--unactive" src="images/star.svg" alt="">
+                    </div>
+                </div>
+            </div> <!-- /.reviews__item -->
+        </div> <!-- /.container -->
+    </div> <!-- /.reviews -->
+
+
+    <!-- FOOTER  -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__credits">
+                    <div class="footer__copyright">
+                        &copy; 2020 Web Dev - Xperino
+                    </div>
+                    <div class="footer__social">
+                        <a href="https://www.linkedin.com/in/vladyslav-kostur-b37a31188/" target="_blank"><img
+                                src="images/linkedin-grey.svg" width="24"></a>
+                    </div>
+                </div> <!-- /footer__credits-->
+
+                <nav class="footer__nav">
+                    <a href="#works" class="footer__nav-link">Work</a>
+                    <a href="#about" class="footer__nav-link">About me</a>
+                    <a href="#" class="footer__nav-link footer__nav-link--btn" data-modal="#modal-hire-me">Hire me</a>
+                </nav>
+            </div> <!-- /footer__inner -->
+        </div> <!-- /container -->
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="modal-hire-me">
+        <div class="modal__dialog">
+            <button class="modal__close" type="button" data-close>
+                <img src="images/modal-close.svg" alt="Close">
+            </button>
+
+
+            <div class="contact">
+                <div class="contact__left">
+                    <h3 class="modal__title mb-0">Let's Talk!</h3>
+                    <h4 class="modal__subtitle">Call me or send me a request</h4>
+
+                    <ul class="contact__info">
+                        <li>(437)-987-2826</li>
+                        <li>kostur.vlad@gmail.com</li>
+                    </ul>
+
+                    <form action="https://formspree.io/xeqrwzrl" method="POST">
+                        <input type="text" class="input" id="input-email" name="_replyto" placeholder="E-mail address">
+                        <textarea class="textarea" id="input-text" name="message"
+                            placeholder="Type your request here..."></textarea>
+                        <div class="text-right">
+                            <button class="btn" type="submit">SEND</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- /modal__dialog -->
+    </div> <!-- /modal -->
+
+    <!-- JS  -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<html>
+
+<head>
+	<title>Blue Mountain Resort</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,700,700i&display=swap" rel="stylesheet">
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+	<link rel="stylesheet" href="css/ski_resorts_style.css">
+	<!-- <style>
+		.resort__header {
+			background-image: url(./images/ski.jpg);
+		}
+
+		.intro__content {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-left: 15px;
+			text-align: left;
+			width: 50%;
+			color: grey;
+		}
+
+		.info__details,
+		.photos__col img,
+		.intro__resort {
+			box-shadow: 0 0 5px black;
+		}
+
+		#nav li a:hover {
+			color: white;
+			font-weight: 700;
+			text-decoration: underline;
+			font-size: 1.5em;
+			transition: .2s linear;
+		}
+
+		.intro__resort:hover {
+			box-shadow: 0 0 25px black;
+			transform: scale(1.02);
+			transition: .3s linear;
+		}
+
+		.info__details:hover {
+			transform: scale(1.02);
+			transition: .3s linear;
+			box-shadow: 0 0 25px black;
+		}
+
+		.photos__col:hover img {
+			transform: scale(1.07);
+			transition: .3s linear;
+			box-shadow: 0 0 25px black;
+		}
+	</style> -->
+</head>
+
+<body>
+	<header>
+		<div class="resort__header">
+			<ul id="nav">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Restaurants</a></li>
+				<li><a href="#">Educational Institutes</a></li>
+				<li><a href="#">Tourist Places</a></li>
+				<li><a href="Project_Vlad_ski_resorts.html">Back to Ski Resorts</a></li>
+			</ul>
+		</div>
+		<div class="header__resort__title">Blue Mountain Resort to the North from Toronto</div>
+	</header>
+
+	<div class="intro__resort">
+		<div class="intro__photo">
+			<img title="Blue Mount title" src="images/blue_mount_title.jpg" alt="">
+		</div>
+		<div class="intro__content">
+			Blue Mountain is Ontario’s answer to British Columbia and Alberta’s super ski-resorts like
+			Whistler
+			and
+			Fernie (it’s Canada’s third most popular ski resort).
+			There’s a reason why this resort known as Ontario’s favourite
+			ski destination. They are the biggest public ski area in the province
+			with 365 skiable acres, a 720 foot vertical and 42 runs, 30 of which
+			are lit for night skiing. With 7 chairlifts accessing everything from
+			beginner trails and long cruisers, to gladed runs and steeps in the
+			North, there’s a run for every visitor to Blue.
+		</div>
+	</div>
+
+	<div class="about">
+		<div class="info">
+			<div class="info__col">
+				<div class="info__details">
+					<h3>Things To Do</h3>
+					<ul>
+						<li>WINTER ATTRACTIONS</li>
+						<li>OFF-RESORT TOURS</li>
+						<li>THE VILLAGE SHOPPING</li>
+						<li>SPAS</li>
+						<li>NIGHTLIFE</li>
+						<li>SNOWPARKS</li>
+					</ul>
+				</div>
+			</div>
+			<div class="info__col">
+				<div class="info__details">
+					<h3> Hours of Operation </h3> <br> <b>Lifts</b> <br> Daily 9:00
+					am–9:00 pm <br> <b> Night Skiing </b> <br> Daily 3:30 pm–9:00 pm <br>
+				</div>
+			</div>
+			<div class="info__col">
+				<div class="info__details">
+					<h3>Details</h3>
+					<b><br> Commute from Toronto </b> <br> 2h40m by Car <br>
+					<b> Pricing </b> <br> Adult (18-69) from $75<br>
+					<b> Website </b> <br> https://www.bluemountain.ca
+				</div>
+			</div>
+		</div> <!-- /.info-->
+	</div> <!-- /.about-->
+
+	<div class="photo">
+		<div class="photo__title">
+			<h3>Photos</h3>
+		</div>
+		<div class="photos">
+			<div class="photos__col">
+				<img title="Blue Mount title" src="images/bm_landscape.jpg" alt="">
+			</div>
+			<div class="photos__col">
+				<img title="Blue Mount title" src="images/bm_family.jpg" alt="">
+			</div>
+			<div class="photos__col">
+				<img title="Blue Mount title" src="images/bm_night_town.jpg" alt="">
+			</div>
+			<div class="photos__col">
+				<img title="Blue Mount title" src="images/bm_webcam.jpg" alt="">
+			</div>
+			<div class="photos__col">
+				<img title="Blue Mount title" src="images/bm_eatery.jpg" alt="">
+			</div>
+			<div class="photos__col">
+				<img title="Blue Mount title" src="images/bm_shopping.jpg" alt="">
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<img src="images/Footer_1.jpg" alt="">
+	</footer>
+
+	<!-- <script type="text/javascript">
+		$("document").ready(function () {
+			$("*").css("box-sizing", "border-box");
+			$("body").css("margin", 0).css("font-family", "Open Sans");
+			$("#nav").css("list-style-type", "none").css("padding", 0);
+			$("#nav li").css("float", "left");
+			$("#nav li a").css("diplay", "block").css("color", "white").css("text-align", "center").css("padding", "16px").css("text-decoration", "none");
+			$(".resort__header").css("position", "relative").css("background-size", "cover").css("min-height", "200px").css("box-shadow", 0, 0, "10px", "gray");
+			$("h1 h2 h3 h4 h5 h6").css("margin", 0);
+			$(".intro__resort").css("border-radius", "10px").css("margin", "15px").css("padding", "15px").css("display", "flex").css("box-shadow", 0, 0, "5px", "black").css("transition", ".2s", "linear");
+			$(".intro__photo").css("width", "50%");
+			$(".intro__photo img").css("width", "100%").css("border-radius", "10px");
+			$(".photo__title, .header__resort__title").css("text-align", "center").css("font-size", "35px").css("font-weight", 700).css("margin", "15px");
+			$(".photos").css("display", "flex").css("flex-wrap", "wrap");
+			$(".photos__col").css("flex", "33.333333%").css("max-width", "33.333333%").css("padding", "15px");
+			$(".photos__col img").css("box-shadow", 0, 0, "5px", "black").css("margin-top", "8px").css("vertical-align", "middle").css("width", "100%").css("border-radius", "10px");
+			$(".info").css("display", "flex").css("flex-wrap", "wrap");
+			$(".info__col").css("flex", "33.333333%");
+			$(".info__details").css("margin", "15px").css("padding", "15px").css("border-radius", "10px").css("transition", ".2s", "linear").css("min-height", 220);
+			$("footer img").css("width", "100%").css("height", "75px");
+		});
+	</script> -->
+</body>
+
+</html>

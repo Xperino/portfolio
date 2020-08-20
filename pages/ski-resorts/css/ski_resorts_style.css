@@ -1,0 +1,279 @@
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+}
+  
+#nav li {
+    float: left;
+}
+  
+#nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+  
+#nav li a:hover {
+    color: white;
+    font-weight: 700;
+    text-decoration: underline;
+    font-size: 1.5em;
+    transition: .2s linear;
+}
+
+.skiresorts__header {
+    position: relative;
+    background-image: url(../images/header-skier.jpg);
+    background-size: cover;
+    min-height: 600px;
+}
+
+.resort__header {
+    position: relative;
+    background-image: url(../images/ski.jpg);
+    background-size: cover;
+    min-height: 200px;
+    box-shadow: 0 0 10px gray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.intro__title {
+    padding-left: 15px;
+    font-size: 35px;
+    font-style: italic;
+    font-weight: 700;
+    color: white;
+    text-shadow: 3px 3px 10px black;
+    position: absolute;
+    top: 30%;
+    text-transform: uppercase;
+}
+
+.intro__info {
+    margin: 40px;
+}
+
+.intro__info::before, 
+.intro__info::after{
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: gray;
+}
+
+.intro__text1, .intro__text3 {
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+}
+
+.intro__text2 {
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-shadow: .5px .5px 5px lightgray;
+}
+
+.resort {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.resort__col {
+    flex-basis: 50%;
+    padding: 15px;
+}
+
+.resort__info {
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+    overflow: hidden;
+    transition: .2s linear;
+}
+
+.resort__info:hover {
+    box-shadow: 0 0 25px black;
+    transform: scale(1.03);
+    transition: .3s linear;
+}
+
+.resort__info:hover img{
+    transform: scale(1.03);
+    transition: .3s;
+}
+
+.resort__title {
+    font-size: 25px;
+    text-transform: uppercase;
+    margin: 10px 15px;
+}
+.resort__intro {
+    font-weight: 300;
+    font-style: italic;
+    margin: 10px 15px;
+}
+.resort__text {
+    margin: 10px 15px 0;
+    min-height: 65px;
+}
+.resort__photo {
+    display: block;
+    max-width: 100%;
+    max-height: 400px;
+}
+
+.btn {
+    float: right;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 0px solid gray;
+    border-radius: 10px;
+    padding: 3px 10px;
+    margin: 0 15px 10px;
+    color: gray;
+
+    transition: .3s linear, 
+    color .3s linear
+}
+.btn:hover {
+    background-color: gray;
+    color: white;
+}
+
+.rent__btn {
+    font-size: 15px;
+    font-weight: 700;
+    float: left;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border: 0px solid gray;
+    padding: 5px 15px;
+    margin: 6px 15px;
+    color: black;
+    transition: .3s linear;
+    cursor: pointer;
+}
+
+.rent__btn:hover {
+    background-color: gray;
+    color: white;
+}
+
+/* RESORTS STYLE */
+
+.intro__resort {
+    margin: 15px;
+    padding: 15px;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+    transition: .2s linear;
+}
+
+.intro__resort:hover {
+    box-shadow: 0 0 25px black;
+    transform: scale(1.02);
+    transition: .3s linear;
+}
+
+.intro__photo {
+    width: 50%;
+}
+
+.intro__photo img {
+    width: 100%;
+    border-radius: 10px;
+}
+.intro__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15px;
+    text-align: left;
+    width: 50%;
+    color: grey;
+}
+
+.photo__title, .header__resort__title {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    margin: 15px;
+}
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photos__col {
+    flex: 33.333333%;
+    max-width: 33.333333%;
+    padding: 15px;
+}
+
+.photos__col img {
+    box-shadow: 0 0 5px black;
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.photos__col:hover img {
+    transform: scale(1.07);
+    transition: .3s linear;
+    box-shadow: 0 0 25px black;
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info__col {
+    flex: 33.333333%;
+}
+
+.info__details:hover {
+    transform: scale(1.02);
+    transition: .3s linear;
+    box-shadow: 0 0 25px black;
+}
+
+.info__details {
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+    transition: .2s linear;
+    min-height: 220px;
+}
+
+footer img{
+    width: 100%;
+    height: 75px;
+}

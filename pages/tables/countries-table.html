@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table with AJAX</title>
+  <style>
+    body {
+      font-family: arial, sans-serif;
+      max-width: 650px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #btn {
+      margin: 15px 0;
+      padding: 10px;
+      width: 100%;
+
+      color: white;
+      font-size: 16px;
+      background-color: #42c300;
+      border: none;
+    }
+
+    #btn:enabled:hover {
+      cursor: pointer;
+      box-shadow: 0 0 8px 2px #b0f58e;
+    }
+
+    #btn:disabled {
+      background-color: #dddddd;
+      color: rgb(141, 141, 141);
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+
+    th {
+      color: white;
+      background-color: #42c300;
+    }
+
+    td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" id="btn" onclick="loadDoc()" value="Press here to load information using AJAX technique">
+
+  <table id="mainTable"></table>
+
+  <script>
+    function loadDoc() {
+      var xhttp;
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          createTable(this);
+        }
+      };
+      xhttp.open("GET", "Country.xml", true);
+      xhttp.send();
+    }
+
+    function createTable(xhttp) {
+      xmlDoc = xhttp.responseXML;
+      const countries = xmlDoc.getElementsByTagName("country");
+
+      const table = document.getElementById("mainTable");
+      // creating headers
+      let row = table.insertRow(0);
+      const headerColumns = ["Country name", "Government", "Total GDP", "Capital", "Population in 2011"];
+      for (let i = 0; i < headerColumns.length; i++) {
+        let headerCell = document.createElement("TH");
+        headerCell.innerHTML = headerColumns[i];
+        row.appendChild(headerCell);
+      }
+      //creating main content
+      for (let i = 0; i < countries.length; i++) {
+        row = table.insertRow();
+        row.insertCell(0).innerHTML = countries[i].getElementsByTagName("name")[0].innerHTML;
+        row.insertCell(1).innerHTML = countries[i].getElementsByTagName("government")[0].innerHTML;
+
+        let gdp_total = row.insertCell(2);
+        if (countries[i].getElementsByTagName("gdp_total").length > 0) // check if we have such data for particular country
+          gdp_total.innerHTML = countries[i].getElementsByTagName("gdp_total")[0].innerHTML;
+        else
+          gdp_total.innerHTML = " - ";
+
+        let capital = row.insertCell(3)
+        let cities = countries[i].getElementsByTagName("city");
+        for (let j = 0; j < cities.length; j++) // find and print name of the capital
+          if (cities[j].getAttribute("id") === countries[i].getAttribute("capital")) { // compare city id and capital id
+            let names = cities[j].getElementsByTagName("name"); // if matched display every name in the current cell
+            for (let k = 0; k < names.length; k++)
+              capital.innerHTML += names[k].innerHTML + " ";
+          }
+
+        let population = row.insertCell(4);
+        let populations = countries[i].getElementsByTagName("population"); // getting array of population measurements
+        for (let j = 0; j < populations.length; j++) {
+          if (populations[j].getAttribute("year") === '2011') { // if we have data for 2011 - display it
+            population.innerHTML = populations[j].innerHTML;
+            break;
+          } else
+            population.innerHTML = " - "; // if no - just print dash
+        }
+      }
+      //disable button after the first load
+      document.getElementById("btn").disabled = true;
+    }
+  </script>
+</body>
+
+</html>

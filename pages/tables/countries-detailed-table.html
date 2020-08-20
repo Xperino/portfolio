@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    body {
+      max-width: 800px;
+      margin: 0 auto;
+      font-family: monospace;
+    }
+
+    input {
+      font-family: monospace;
+    }
+
+    #btn {
+      font-weight: 700;
+      color: white;
+      background-color: black;
+    }
+
+    table {
+      margin: 15px auto;
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+</head>
+
+<body>
+  <p>
+    <label for="textfield">Enter country name:</label>
+    <input type="text" name="textfield" id="input">
+    <input type="button" id="btn" value="Search By Country">
+  </p>
+  <main>
+    <div id="generalInfo"></div>
+    <div id="detailedInfo"></div>
+  </main>
+
+
+  <script>
+    $(document).ready(function () {
+      $("#btn").click(function () {
+        searchByCountry();
+      });
+    });
+
+    function searchByCountry() {
+      let input = $("#input").val().toLowerCase();
+      if (!input) {
+        $("#generalInfo").html("Country name field is empty");
+        $("#detailedInfo").html("");
+        $("#generalInfo").css("color", "red");
+        return;
+      }
+      $("#generalInfo").css("color", "black");
+
+      $.getJSON("Country.json", function (myobj) {
+        let countries = myobj.mondial.country;
+
+        for (let i = 0; i < countries.length; i++) {
+          if (countries[i].name.toLowerCase().includes(input)) {
+            createGeneralInfo(countries[i]);
+
+            if (countries[i].hasOwnProperty('province'))
+              createProvincesInfo(countries[i]);
+            else if (countries[i].hasOwnProperty('city'))
+              createCitiesInfo(countries[i]);
+
+            return;
+          }
+
+          $("#generalInfo").html("Country is not found");
+          $("#detailedInfo").html("");
+        }
+      });
+    }
+
+    function createCitiesInfo(country) {
+
+      let table = document.createElement("TABLE");
+
+      let row = table.insertRow(0);
+      row.insertCell().innerHTML = "<b>City Name</b>";
+      row.insertCell().innerHTML = "<b>City Population in 2011</b>";
+
+      let cities = country.city;
+      for (let i = 0; i < cities.length; i++) {
+        row = table.insertRow();
+        row.insertCell().innerHTML = cities[i].name;
+
+        let population = row.insertCell()
+        let populations = cities[i].population;
+        for (let j = 0; j < populations.length; j++)
+          if (populations[j]["-year"] === "2011")
+            population.innerHTML = populations[j]["#text"];
+
+        if (population.innerHTML.length === 0)
+          population.innerHTML = " - ";
+      }
+
+      document.getElementById("detailedInfo").innerHTML = "";
+      document.getElementById("detailedInfo").appendChild(table);
+    }
+
+
+    function createProvincesInfo(country) {
+      let table = document.createElement("TABLE");
+
+      let row = table.insertRow(0);
+      const headerColumns = ["Province name", "City Name", "City Local Name", "City Population in 2011"];
+      for (let i = 0; i < headerColumns.length; i++) {
+        let headerCell = document.createElement("TH");
+        headerCell.innerHTML = headerColumns[i];
+        row.appendChild(headerCell);
+      }
+
+      let provinces = country.province;
+      for (let j = 0; j < country.province.length; j++) {
+        let cities = provinces[j].city;
+        if (cities.length > 0) {
+          for (let k = 0; k < cities.length; k++) {
+            row = table.insertRow();
+            row.insertCell(0).innerHTML = provinces[j].name;
+            row.insertCell(1).innerHTML = cities[k].name;
+
+            let localname = row.insertCell(2);
+            if (cities[k].hasOwnProperty("localname"))
+              localname.innerHTML = cities[k].localname;
+            else
+              localname.innerHTML = " - ";
+
+            let population = row.insertCell(3);
+            if (cities[k].hasOwnProperty("population"))
+              for (let result in cities[k].population)
+                if (cities[k].population[result]["-year"] === "2011")
+                  population.innerHTML = cities[k].population[result]['#text'];
+
+            if (population.innerHTML.length === 0)
+              population.innerHTML = " - ";
+          }
+
+        }
+        else {
+          let row = table.insertRow();
+          row.insertCell(0).innerHTML = provinces[j].name;
+          row.insertCell(1).innerHTML = provinces[j].city.name;
+
+          let localname = row.insertCell(2);
+          if (provinces[j].city.hasOwnProperty("localname"))
+            localname.innerHTML = provinces[j].city.localname;
+          else
+            localname.innerHTML = " - ";
+
+          let population = row.insertCell(3);
+          if (provinces[j].city.hasOwnProperty("population"))
+            for (let result in provinces[j].city.population)
+              if (provinces[j].city.population[result]["-year"] === "2011")
+                population.innerHTML = provinces[j].city.population[result]['#text'];
+
+          if (population.innerHTML.length === 0)
+            population.innerHTML = " - ";
+        }
+      }
+
+      document.getElementById("detailedInfo").innerHTML = "";
+      document.getElementById("detailedInfo").appendChild(table);
+    }
+
+    function createGeneralInfo(country) {
+      data = "";
+      let borderCountries = "";
+      let noOfProvinces = "";
+
+      if (country.hasOwnProperty("border"))
+        for (let i = 0; i < country.border.length; i++)
+          borderCountries += country.border[i]["-country"] + " ";
+      else
+        borderCountries += "No data";
+
+      if (country.hasOwnProperty('province'))
+        noOfProvinces += country.province.length;
+      else
+        noOfProvinces += 0;
+
+      data += `<table border='1' style='border-collapse: collapse;'>
+            <tr><td>Country name: ${country.name} </td><td>Border Countries: ${borderCountries} </td></tr>
+            <tr><td>No of Provinces: ${noOfProvinces}</td><td>Area: ${country["-area"]}</td></tr>`;
+
+      $("#detailedInfo").html("");
+      $("#generalInfo").html("");
+      $("#generalInfo").html(data);
+    }
+  </script>
+</body>
+
+</html>
